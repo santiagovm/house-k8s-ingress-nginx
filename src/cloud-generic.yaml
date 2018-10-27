@@ -1,0 +1,25 @@
+# copied from https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/provider/cloud-generic.yaml
+# link found in https://kubernetes.github.io/ingress-nginx/deploy/
+kind: Service
+apiVersion: v1
+metadata:
+  name: ingress-nginx
+  namespace: ingress-nginx
+  labels:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/part-of: ingress-nginx
+spec:
+  externalTrafficPolicy: Local
+  type: LoadBalancer
+  selector:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/part-of: ingress-nginx
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
+    - name: https
+      port: 443
+      targetPort: https
+
+---
