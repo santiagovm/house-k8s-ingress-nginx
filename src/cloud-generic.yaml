@@ -16,12 +16,12 @@ spec:
     app.kubernetes.io/part-of: ingress-nginx
   ports:
     - name: http
-      port: 8080
+      port: 80
       targetPort: http
     - name: https
-      port: 8443
+      port: 443
       targetPort: https
   externalIPs:
-    - 192.168.135.176 # change this ip to schumie when deploying there
+    - 192.168.135.76 # change this ip to schumie when deploying there
 
 ---
